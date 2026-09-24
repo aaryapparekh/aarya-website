@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Aarya Parekh's personal hub for the dashboard and LinkedIn."
+    />
+    <meta name="theme-color" content="#111214" />
+    <title>Aarya Parekh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111214'/%3E%3Cpath d='M18 44 29 18h6l11 26h-7l-2-6H27l-2 6h-7Zm11-12h6l-3-8-3 8Z' fill='%23FF450D'/%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --font-display: "Space Grotesk", system-ui, sans-serif;
+        --font-body: "DM Sans", system-ui, sans-serif;
+        --font-signature: Rockwell, "Rockwell Bold", serif;
+        --ap-orange: #ff450d;
+        --ap-orange-hover: #ff693d;
+        --ap-orange-soft: rgba(255, 69, 13, 0.1);
+        --ap-orange-border: rgba(255, 69, 13, 0.45);
+        --bg: #111214;
+        --chrome: #1a1b1e;
+        --surface: #222326;
+        --surface-hover: #2c2e31;
+        --border: #383a3e;
+        --text: #f5f3ef;
+        --muted: #a6a8ac;
+        --tertiary: #777b80;
+        --radius-control: 10px;
+        --radius-card: 16px;
+        --motion-fast: 140ms;
+        --motion-base: 190ms;
+        --ease-standard: cubic-bezier(.2, 0, 0, 1);
+      }
+
+      * { box-sizing: border-box; }
+
+      html { min-height: 100%; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--text);
+        background: var(--bg);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .shell {
+        width: min(100% - 40px, 960px);
+        margin-inline: auto;
+        padding: 72px 0 48px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 72px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: inherit;
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        text-decoration: none;
+      }
+
+      .mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 1px solid var(--ap-orange-border);
+        border-radius: var(--radius-control);
+        color: var(--ap-orange);
+        background: var(--ap-orange-soft);
+        font-family: var(--font-signature);
+        font-size: 0.9rem;
+        font-style: italic;
+        font-weight: 700;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .status::before {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--ap-orange);
+        content: "";
+      }
+
+      .intro {
+        max-width: 640px;
+        margin-bottom: 40px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--ap-orange);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 8vw, 4.75rem);
+        font-weight: 600;
+        letter-spacing: -0.065em;
+        line-height: 0.98;
+      }
+
+      .intro p:last-child {
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        position: relative;
+        display: flex;
+        min-height: 240px;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        padding: 28px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-card);
+        color: inherit;
+        background: var(--surface);
+        text-decoration: none;
+        transition: transform var(--motion-base) var(--ease-standard), border-color var(--motion-base) var(--ease-standard), background var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard);
+      }
+
+      .card:hover,
+      .card:focus-visible {
+        border-color: var(--ap-orange-border);
+        background: var(--surface-hover);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, .22);
+        transform: translateY(-2px);
+      }
+
+      .card:focus-visible { outline: 3px solid var(--ap-orange); outline-offset: 3px; }
+      .card:active { transform: translateY(0) scale(.995); }
+
+      .icon {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-control);
+        color: var(--ap-orange);
+        background: var(--chrome);
+      }
+
+      .icon svg { width: 22px; height: 22px; }
+
+      .card-footer {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .card h2 {
+        margin: 0 0 6px;
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        letter-spacing: -0.025em;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .arrow {
+        color: var(--muted);
+        font-size: 1.25rem;
+        transition: color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+      }
+
+      .card:hover .arrow,
+      .card:focus-visible .arrow {
+        color: var(--ap-orange);
+        transform: translate(2px, -2px);
+      }
+
+      footer {
+        margin-top: 72px;
+        color: var(--tertiary);
+        font-size: 0.78rem;
+      }
+
+      @media (max-width: 680px) {
+        .shell { width: min(100% - 28px, 960px); padding-top: 28px; }
+        .topbar { margin-bottom: 56px; }
+        .status { display: none; }
+        .intro { margin-bottom: 28px; }
+        .grid { grid-template-columns: 1fr; }
+        .card { min-height: 200px; }
+        footer { margin-top: 48px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+      }
+
+      ::selection { color: var(--text); background: rgba(255, 69, 13, .42); }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Aarya Parekh home">
+          <span class="mark" aria-hidden="true">AP</span>
+          <span>Aarya Parekh</span>
+        </a>
+        <span class="status">Personal hub</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Welcome</p>
+        <h1 id="page-title">Everything in one place.</h1>
+        <p>A simple home for my work, projects, and professional profile.</p>
+      </section>
+
+      <nav class="grid" aria-label="Primary links">
+        <a class="card" href="https://dashboard.aaryaparekh.com" rel="noopener noreferrer" aria-label="Open dashboard">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1.5" />
+              <rect x="14" y="3" width="7" height="7" rx="1.5" />
+              <rect x="3" y="14" width="7" height="7" rx="1.5" />
+              <rect x="14" y="14" width="7" height="7" rx="1.5" />
+            </svg>
+          </span>
+          <span class="card-footer">
+            <span>
+              <h2>Dashboard</h2>
+              <p>Projects, tools, and workspace</p>
+            </span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </span>
+        </a>
+
+        <a class="card" href="https://www.linkedin.com/in/aarya-parag-parekh" rel="noopener noreferrer" aria-label="Open LinkedIn profile">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.5 8.1H3.2V20h3.3V8.1ZM4.85 3A1.91 1.91 0 1 0 4.84 6.82 1.91 1.91 0 0 0 4.85 3ZM20.8 13.18c0-3.59-1.91-5.26-4.46-5.26a3.85 3.85 0 0 0-3.49 1.92V8.1H9.56V20h3.29v-5.9c0-1.55.29-3.06 2.22-3.06 1.9 0 1.92 1.78 1.92 3.16V20h3.29l.52-6.82Z" />
+            </svg>
+          </span>
+          <span class="card-footer">
+            <span>
+              <h2>LinkedIn</h2>
+              <p>Experience, updates, and connections</p>
+            </span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </span>
+        </a>
+      </nav>
+
+      <footer>© <span id="year"></span> Aarya Parekh</footer>
+    </main>
+
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
