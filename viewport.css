@@ -1,0 +1,98 @@
+/* One viewport, with every track allowed to shrink below its content size.
+   Text scales against both dimensions of its own panel, not just screen width. */
+html, body { width:100%; height:100%; min-height:0; overflow:hidden; }
+body { height:100vh; height:100dvh; }
+.site {
+  display:grid; grid-template-rows:min(12dvh,96px) minmax(0,1.7fr) minmax(0,1fr);
+  width:100%; height:100%; min-height:0; margin:0; border:0;
+}
+.topbar, .upper, .lower, .hero, .identity, .statement, .technical, .dashboard {
+  min-width:0; min-height:0;
+}
+.topbar { grid-template-columns:minmax(0,1fr) minmax(0,14%) minmax(0,14%); }
+.brand, .nav-link { min-width:0; padding:min(2vw,2dvh,28px) min(2vw,28px); }
+.brand { gap:min(1.3vw,16px); }
+.brand-logo { width:min(4vw,6dvh,56px); max-height:65%; }
+.brand-name, .brand-field, .nav-link {
+  font-size:min(.85vw,2dvh,16px); letter-spacing:.1em;
+}
+.brand-field { font-size:min(.72vw,1.6dvh,13px); }
+.brand-copy { display:grid; }
+.nav-link::after { left:12%; right:12%; bottom:16%; }
+.upper { display:grid; grid-template-columns:minmax(0,65fr) minmax(0,35fr); }
+.lower { display:grid; grid-template-columns:minmax(0,48fr) minmax(0,17fr) minmax(0,35fr); }
+.hero, .identity, .statement, .technical, .dashboard { container-type:size; }
+.hero { border-right:1px solid var(--line); border-bottom:0; }
+.hero-logo {
+  width:min(88cqi,185cqb); height:auto; max-width:90%; max-height:80%;
+  object-fit:contain; transform:translate3d(var(--logo-x,0),var(--logo-y,0),0);
+}
+.hero-index, .hero-datum { font-size:min(1.4cqi,3cqb); }
+.hero-index { left:4cqi; top:6cqb; }
+.hero-datum { right:4cqi; bottom:6cqb; }
+.hero-grid { background-size:min(8cqi,16cqb) min(8cqi,16cqb); }
+.identity { padding:min(2.2vw,3dvh); gap:1.5dvh; }
+.identity-mark { width:min(14cqi,12cqb); height:min(14cqi,12cqb); flex-shrink:0; }
+.identity-content { max-width:none; min-width:0; }
+.kicker { font-size:min(3cqi,4cqb); margin:0 0 3cqb; }
+.identity h1 { font-size:min(12cqi,17cqb); line-height:.98; }
+.discipline { font-size:min(3.2cqi,4cqb); margin:2cqb 0 0; line-height:1.4; letter-spacing:.06em; }
+.identity-description { font-size:min(3.6cqi,4.6cqb); line-height:1.5; margin:5cqb 0 0; max-width:39ch; }
+.statement { padding:min(2.2vw,3dvh); border-bottom:0; }
+.statement p { font-size:min(16.5cqi,38cqb); line-height:.88; }
+.technical { display:grid; }
+.technical svg { width:min(46cqi,46cqb); height:min(46cqi,46cqb); }
+.dashboard { padding:min(2.2vw,3dvh); border-left:1px solid var(--line); }
+.dashboard-meta { flex-wrap:wrap; gap:2cqb 3cqi; }
+.microcopy, .copyright { font-size:min(2.8cqi,5cqb); letter-spacing:.07em; }
+.dashboard-main { gap:3cqi; align-items:center; }
+.dashboard-label { font-size:min(12cqi,32cqb); }
+.dashboard-arrow { width:min(12cqi,26cqb); height:min(12cqi,26cqb); }
+.dashboard:hover .dashboard-label, .dashboard:focus-visible .dashboard-label { transform:translateX(1cqi); }
+.dashboard:hover .dashboard-arrow, .dashboard:focus-visible .dashboard-arrow { transform:translateX(1cqi); }
+.motion-replay { font-size:min(1.5cqi,3cqb); padding:2cqb 2cqi; bottom:4cqb; left:4cqi; }
+.motion-skip { font-size:min(2vw,2dvh,10px); padding:min(2vw,10px); right:3vw; bottom:3dvh; }
+
+/* Portrait composition uses the same complete content in vertically shared tracks. */
+@media (max-aspect-ratio: 4/5) {
+  .site { grid-template-rows:min(9dvh,80px) minmax(0,2.5fr) minmax(0,1fr); }
+  .topbar { grid-template-columns:minmax(0,1fr) minmax(0,28%) minmax(0,28%); }
+  .brand { padding:2vw 5vw; }
+  .brand-logo { width:min(12vw,5dvh); max-height:75%; }
+  .brand-copy { display:none; }
+  .nav-link { font-size:min(2.5vw,2dvh); padding:2vw; }
+  .upper { grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(0,1fr) minmax(0,1.15fr); }
+  .hero { border-right:0; border-bottom:1px solid var(--line); }
+  .identity { padding:min(4vw,2dvh); flex-direction:row; gap:4vw; align-items:center; }
+  .identity-mark { width:min(10cqi,16cqb); height:min(10cqi,16cqb); }
+  .identity-content { flex:1; }
+  .kicker { font-size:min(3cqi,4.5cqb); margin-bottom:3cqb; }
+  .identity h1 { font-size:min(10cqi,17cqb); }
+  .discipline { font-size:min(2.7cqi,4.1cqb); }
+  .identity-description { font-size:min(3.2cqi,4.8cqb); margin-top:4cqb; }
+  .lower { grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(0,1fr) minmax(0,1fr); }
+  .technical { display:none; }
+  .statement { padding:min(3vw,1.5dvh); align-items:center; border-bottom:1px solid var(--line); }
+  .statement p { font-size:min(12cqi,38cqb); }
+  .dashboard { padding:min(3vw,1.5dvh); border-left:0; flex-direction:row; align-items:center; gap:3vw; }
+  .dashboard-meta { flex:1; flex-direction:column; gap:5cqb; }
+  .microcopy, .copyright { font-size:min(2.4cqi,11cqb); }
+  .dashboard-main { flex:1.2; }
+  .dashboard-label { font-size:min(7cqi,32cqb); }
+  .dashboard-arrow { width:min(8cqi,30cqb); height:min(8cqi,30cqb); }
+}
+
+/* Intermediate/square windows keep the horizontal composition, with more copy room. */
+@media (aspect-ratio > 4/5) and (aspect-ratio <= 6/5) {
+  .upper { grid-template-columns:minmax(0,55fr) minmax(0,45fr); }
+  .lower { grid-template-columns:minmax(0,55fr) minmax(0,45fr); }
+  .technical { display:none; }
+  .brand-copy { display:none; }
+  .topbar { grid-template-columns:minmax(0,1fr) minmax(0,24%) minmax(0,24%); }
+  .nav-link { font-size:min(1.8vw,2dvh); }
+  .brand-logo { width:min(7vw,6dvh); }
+}
+@media print {
+  html,body { height:auto; overflow:visible; }
+  .site { height:100vh; }
+}
