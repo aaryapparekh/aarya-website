@@ -1,0 +1,15 @@
+.site,.hero-logo,.identity-content,.statement p{animation:none}
+.motion-stage{position:fixed;z-index:20;left:0;top:0;width:800px;height:331.624px;transform-origin:0 0;pointer-events:none;overflow:visible;background:transparent;will-change:transform,opacity}
+.motion-stage svg{display:block;width:100%;height:100%;overflow:visible}
+.motion-stage .leg-left{transform-box:view-box;transform-origin:142px 405px}
+.motion-stage .leg-right{transform-box:view-box;transform-origin:236px 405px}
+.motion-stage .shape{transform-box:fill-box;transform-origin:center}
+.motion-stage .fighter-a,.motion-stage .fighter-p{transform-origin:center bottom}
+.motion-skip,.motion-replay{border:1px solid var(--line2);background:var(--deep);color:var(--muted);font:500 10px var(--body);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:10px 12px}
+.motion-skip{position:fixed;z-index:21;right:24px;bottom:24px}
+.motion-replay{position:absolute;z-index:2;bottom:16px;left:24px;background:transparent}
+.motion-skip:hover,.motion-replay:hover{color:var(--text);border-color:var(--accent)}
+.motion-skip:focus-visible,.motion-replay:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.motion-replay[hidden],.motion-skip[hidden]{display:none}
+@media(max-width:680px){.motion-replay{left:16px;font-size:9px}}
+@media(prefers-reduced-motion:reduce){.motion-stage,.motion-skip,.motion-replay{display:none!important}}

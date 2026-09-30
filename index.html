@@ -3,292 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Aarya Parekh's personal hub for the dashboard and LinkedIn."
-    />
+    <meta name="description" content="Aarya Parekh — Mechanical Engineering student building at the intersection of design, manufacturing, and technical problem-solving." />
     <meta name="theme-color" content="#111214" />
-    <title>Aarya Parekh</title>
+    <link rel="canonical" href="https://aaryaparekh.com/" />
+    <meta property="og:title" content="Aarya Parekh — Mechanical Engineering" />
+    <meta property="og:description" content="Design, manufacturing, and technical problem-solving." />
+    <meta property="og:url" content="https://aaryaparekh.com/" />
+    <meta property="og:type" content="website" />
+    <title>Aarya Parekh — Mechanical Engineering</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="icon" type="image/png" sizes="640x640" href="https://dashboard.aaryaparekh.com/ap-logo.png" />
-    <link rel="apple-touch-icon" href="https://dashboard.aaryaparekh.com/ap-logo.png" />
+    <link rel="icon" type="image/svg+xml" href="ap-logo.svg" />
     <style>
-      :root {
-        color-scheme: dark;
-        --font-display: "Space Grotesk", system-ui, sans-serif;
-        --font-body: "DM Sans", system-ui, sans-serif;
-        --font-signature: Rockwell, "Rockwell Bold", serif;
-        --ap-orange: #ff450d;
-        --ap-orange-hover: #ff693d;
-        --ap-orange-soft: rgba(255, 69, 13, 0.1);
-        --ap-orange-border: rgba(255, 69, 13, 0.45);
-        --bg: #111214;
-        --chrome: #1a1b1e;
-        --surface: #222326;
-        --surface-hover: #2c2e31;
-        --border: #383a3e;
-        --text: #f5f3ef;
-        --muted: #a6a8ac;
-        --tertiary: #777b80;
-        --radius-control: 10px;
-        --radius-card: 16px;
-        --motion-fast: 140ms;
-        --motion-base: 190ms;
-        --ease-standard: cubic-bezier(.2, 0, 0, 1);
-      }
-
-      * { box-sizing: border-box; }
-
-      html { min-height: 100%; }
-
-      body {
-        min-height: 100vh;
-        margin: 0;
-        color: var(--text);
-        background: var(--bg);
-        font-family: var(--font-body);
-        -webkit-font-smoothing: antialiased;
-      }
-
-      .shell {
-        width: min(100% - 40px, 960px);
-        margin-inline: auto;
-        padding: 72px 0 48px;
-      }
-
-      .topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        margin-bottom: 72px;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: inherit;
-        font-size: 0.95rem;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        text-decoration: none;
-      }
-
-      .mark {
-        display: block;
-        width: 34px;
-        height: 34px;
-        border-radius: var(--radius-control);
-        object-fit: cover;
-      }
-
-      .status {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--muted);
-        font-size: 0.82rem;
-      }
-
-      .status::before {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--ap-orange);
-        content: "";
-      }
-
-      .intro {
-        max-width: 640px;
-        margin-bottom: 40px;
-      }
-
-      .eyebrow {
-        margin: 0 0 14px;
-        color: var(--ap-orange);
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        margin: 0;
-        font-family: var(--font-display);
-        font-size: clamp(2.5rem, 8vw, 4.75rem);
-        font-weight: 600;
-        letter-spacing: -0.065em;
-        line-height: 0.98;
-      }
-
-      .intro p:last-child {
-        margin: 20px 0 0;
-        color: var(--muted);
-        font-size: 1.05rem;
-        line-height: 1.65;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-      }
-
-      .card {
-        position: relative;
-        display: flex;
-        min-height: 240px;
-        flex-direction: column;
-        justify-content: space-between;
-        overflow: hidden;
-        padding: 28px;
-        border: 1px solid var(--border);
-        border-radius: var(--radius-card);
-        color: inherit;
-        background: var(--surface);
-        text-decoration: none;
-        transition: transform var(--motion-base) var(--ease-standard), border-color var(--motion-base) var(--ease-standard), background var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard);
-      }
-
-      .card:hover,
-      .card:focus-visible {
-        border-color: var(--ap-orange-border);
-        background: var(--surface-hover);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, .22);
-        transform: translateY(-2px);
-      }
-
-      .card:focus-visible { outline: 3px solid var(--ap-orange); outline-offset: 3px; }
-      .card:active { transform: translateY(0) scale(.995); }
-
-      .icon {
-        display: grid;
-        width: 46px;
-        height: 46px;
-        place-items: center;
-        border: 1px solid var(--border);
-        border-radius: var(--radius-control);
-        color: var(--ap-orange);
-        background: var(--chrome);
-      }
-
-      .icon svg { width: 22px; height: 22px; }
-
-      .card-footer {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 20px;
-      }
-
-      .card h2 {
-        margin: 0 0 6px;
-        font-family: var(--font-display);
-        font-size: 1.2rem;
-        letter-spacing: -0.025em;
-      }
-
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.9rem;
-        line-height: 1.5;
-      }
-
-      .arrow {
-        color: var(--muted);
-        font-size: 1.25rem;
-        transition: color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
-      }
-
-      .card:hover .arrow,
-      .card:focus-visible .arrow {
-        color: var(--ap-orange);
-        transform: translate(2px, -2px);
-      }
-
-      footer {
-        margin-top: 72px;
-        color: var(--tertiary);
-        font-size: 0.78rem;
-      }
-
-      @media (max-width: 680px) {
-        .shell { width: min(100% - 28px, 960px); padding-top: 28px; }
-        .topbar { margin-bottom: 56px; }
-        .status { display: none; }
-        .intro { margin-bottom: 28px; }
-        .grid { grid-template-columns: 1fr; }
-        .card { min-height: 200px; }
-        footer { margin-top: 48px; }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
-      }
-
-      ::selection { color: var(--text); background: rgba(255, 69, 13, .42); }
+      :root { color-scheme: dark; --bg:#111214; --panel:#151619; --deep:#0d0f12; --hover:#1c1d20; --line:rgba(245,243,239,.11); --line2:rgba(245,243,239,.2); --text:#f5f3ef; --muted:#999b9f; --muted2:#62656b; --accent:#ff450d; --accent-hover:#ff6336; --display:"Space Grotesk",system-ui,sans-serif; --body:"DM Sans",system-ui,sans-serif; --fast:160ms; --base:220ms; --ease:cubic-bezier(.2,0,0,1); }
+      *{box-sizing:border-box} html{min-height:100%;background:var(--bg)} body{min-height:100vh;margin:0;color:var(--text);background:var(--bg);font-family:var(--body);-webkit-font-smoothing:antialiased} a{color:inherit} ::selection{color:var(--text);background:rgba(255,69,13,.5)}
+      .site{width:min(calc(100vw - 64px),1440px);min-height:min(820px,calc(100vh - 64px));margin:32px auto;overflow:hidden;border:1px solid var(--line2);background:var(--deep);animation:frame-in 360ms var(--ease) both}
+      .topbar{display:grid;min-height:86px;grid-template-columns:minmax(240px,1fr) auto auto;align-items:stretch;border-bottom:1px solid var(--line)}
+      .brand{display:flex;min-width:0;align-items:center;gap:16px;padding:20px 28px;text-decoration:none}.brand-logo{width:44px;height:auto;flex:0 0 auto}.brand-copy{display:grid;gap:3px}.brand-name,.brand-field,.nav-link,.kicker,.microcopy{font-size:.75rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase}.brand-field{color:var(--muted);font-size:.66rem}
+      .nav-link{position:relative;display:grid;min-width:150px;place-items:center;border-left:1px solid var(--line);color:var(--muted);text-decoration:none;transition:color var(--fast) var(--ease),background var(--fast) var(--ease)}.nav-link::after{position:absolute;right:20px;bottom:15px;left:20px;height:1px;background:var(--accent);content:"";transform:scaleX(0);transform-origin:left;transition:transform var(--base) var(--ease)}.nav-link:hover,.nav-link:focus-visible{color:var(--text);background:rgba(255,255,255,.018)}.nav-link:hover::after,.nav-link:focus-visible::after{transform:scaleX(1)}
+      .upper{display:grid;min-height:430px;grid-template-columns:65% 35%;border-bottom:1px solid var(--line)}
+      .hero{position:relative;display:grid;min-width:0;overflow:hidden;place-items:center;border-right:1px solid var(--line);background:radial-gradient(circle at 44% 54%,rgba(255,69,13,.13),transparent 42%),var(--deep);isolation:isolate}.hero-grid{position:absolute;inset:0;z-index:-1;opacity:.4;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at center,black 10%,transparent 72%)}.hero::before,.hero::after{position:absolute;z-index:-1;content:"";background:rgba(245,243,239,.13)}.hero::before{top:50%;right:0;left:0;height:1px}.hero::after{top:0;bottom:0;left:50%;width:1px}.hero-logo{width:88%;height:auto;filter:drop-shadow(0 18px 38px rgba(255,69,13,.13));transform:translate3d(var(--logo-x,0),var(--logo-y,0),0) scale(1.05);animation:logo-reveal 720ms cubic-bezier(.16,1,.3,1) 100ms both;transition:transform 80ms linear}.hero-index,.hero-datum{position:absolute;color:var(--muted2);font:500 .68rem/1 var(--body);letter-spacing:.15em}.hero-index{top:24px;left:28px}.hero-datum{right:24px;bottom:20px;font-size:.66rem;letter-spacing:.12em}
+      .identity{display:flex;min-width:0;flex-direction:column;justify-content:space-between;padding:32px;background:var(--panel)}.identity-mark{width:56px;color:var(--muted2)}.identity-content{max-width:31rem;animation:rise-in 520ms var(--ease) 160ms both}.kicker{margin:0 0 14px;color:var(--accent)}.identity h1{margin:0;font:600 clamp(2.15rem,3.5vw,3.7rem)/.95 var(--display);letter-spacing:-.055em}.discipline{margin:10px 0 0;color:var(--muted);font:500 .85rem/1.3 var(--display);letter-spacing:.08em;text-transform:uppercase}.identity-description{max-width:39ch;margin:28px 0 0;color:var(--muted);font-size:1rem;line-height:1.65}
+      .lower{display:grid;min-height:260px;grid-template-columns:48% 17% 35%}.statement,.technical,.dashboard{min-width:0}.statement{display:flex;align-items:flex-end;padding:28px;overflow:hidden;background:#121315}.statement p{margin:0;font:700 clamp(3.2rem,5.45vw,6.1rem)/.81 var(--display);letter-spacing:-.075em;text-transform:uppercase;animation:rise-in 580ms var(--ease) 210ms both}.statement span{display:block}
+      .technical{display:grid;place-items:center;border-left:1px solid var(--line);background:var(--panel)}.technical svg{width:min(46%,108px);color:var(--muted2);overflow:visible}.technical .diamond,.technical .ticks{transform-origin:center;transition:transform 260ms var(--ease),stroke var(--fast) var(--ease)}.technical:hover .diamond{stroke:var(--text);transform:rotate(45deg)}.technical:hover .ticks{stroke:var(--accent);transform:scale(1.08)}
+      .dashboard{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:28px 30px;overflow:hidden;border-left:1px solid var(--line);background:var(--panel);text-decoration:none;transition:background var(--base) var(--ease)}.dashboard::after{position:absolute;right:0;bottom:0;left:0;height:3px;background:var(--accent);content:"";transform:scaleX(.08);transform-origin:left;transition:transform 300ms var(--ease)}.dashboard-meta{display:flex;justify-content:space-between;gap:16px}.microcopy,.copyright{color:var(--muted)}.copyright{font-size:.68rem;letter-spacing:.08em;white-space:nowrap}.dashboard-main{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}.dashboard-label{font:600 clamp(2.1rem,3.6vw,4rem)/.9 var(--display);letter-spacing:-.055em;text-transform:uppercase;transition:color var(--fast) var(--ease),transform var(--base) var(--ease)}.dashboard-arrow{width:46px;height:46px;flex:0 0 auto;color:var(--accent);transition:transform var(--base) var(--ease)}.dashboard:hover,.dashboard:focus-visible{background:var(--hover)}.dashboard:hover::after,.dashboard:focus-visible::after{transform:scaleX(1)}.dashboard:hover .dashboard-label,.dashboard:focus-visible .dashboard-label{color:var(--accent-hover);transform:translateX(8px)}.dashboard:hover .dashboard-arrow,.dashboard:focus-visible .dashboard-arrow{transform:translateX(6px)}.dashboard:active .dashboard-label{transform:translateX(5px) scale(.99)}
+      a:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}.brand:focus-visible{outline-offset:-4px}
+      @keyframes frame-in{from{opacity:0}to{opacity:1}}@keyframes logo-reveal{from{opacity:0;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0)}}@keyframes rise-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+      @media(max-width:900px){.site{width:calc(100vw - 32px);margin:16px auto}.topbar{grid-template-columns:1fr auto auto;min-height:72px}.brand{padding:14px 18px}.brand-logo{width:38px}.brand-copy{display:none}.nav-link{min-width:118px;padding:0 16px}.upper{grid-template-columns:58% 42%;min-height:390px}.identity{padding:26px}.lower{min-height:240px;grid-template-columns:50% 16% 34%}.statement,.dashboard{padding:24px}}
+      @media(max-width:680px),(max-height:600px) and (max-width:900px){.site{width:calc(100vw - 24px);margin:12px auto}.topbar{grid-template-columns:1fr auto auto}.nav-link{min-width:92px;padding:0 12px;font-size:.68rem}.upper{display:block;min-height:0}.hero{min-height:340px;border-right:0;border-bottom:1px solid var(--line)}.hero-logo{width:105%}.identity{min-height:330px}.identity-mark{width:44px}.lower{display:block;min-height:0}.statement{min-height:260px;border-bottom:1px solid var(--line)}.statement p{font-size:clamp(3rem,13.8vw,4.5rem)}.technical{display:none}.dashboard{min-height:230px;border-left:0}}
+      @media(max-width:390px){.site{width:calc(100vw - 16px);margin:8px auto}.brand{padding-inline:12px}.brand-logo{width:34px}.nav-link{min-width:82px;padding-inline:8px;font-size:.62rem;letter-spacing:.1em}.hero{min-height:300px}.identity{min-height:310px;padding:24px}.statement{min-height:240px;padding:22px}.dashboard{min-height:210px;padding:24px}}
+      @media(max-height:760px) and (min-width:901px){.site{margin-block:16px;min-height:calc(100vh - 32px)}.topbar{min-height:70px}.upper{min-height:360px}.lower{min-height:220px}}
+      @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hero-logo{transform:none!important}}
+      @media print{:root{color-scheme:light}body,.site,.hero,.identity,.statement,.technical,.dashboard{color:#111214;background:#fff}.site{border-color:#aaa;margin:0;width:100%}.nav-link,.technical{display:none}}
     </style>
+    <link rel="stylesheet" href="motion.css" />
+    <script src="pump.js?v=5" defer></script>
   </head>
   <body>
-    <main class="shell">
+    <main class="site">
       <header class="topbar">
-        <a class="brand" href="/" aria-label="Aarya Parekh home">
-          <img class="mark" src="https://dashboard.aaryaparekh.com/ap-logo.png" alt="" width="34" height="34" />
-          <span>Aarya Parekh</span>
-        </a>
-        <span class="status">Personal hub</span>
+        <a class="brand" href="/" aria-label="Aarya Parekh home"><img class="brand-logo" src="ap-logo.svg" width="468" height="194" alt="A.P" /><span class="brand-copy"><span class="brand-name">Aarya Parekh</span><span class="brand-field">Mechanical Engineering</span></span></a>
+        <a class="nav-link" href="https://dashboard.aaryaparekh.com">Dashboard</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/aarya-parag-parekh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </header>
-
-      <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow">Welcome</p>
-        <h1 id="page-title">Everything in one place.</h1>
-        <p>A simple home for my work, projects, and professional profile.</p>
+      <section class="upper" aria-label="Introduction">
+        <div class="hero" id="hero" aria-hidden="true"><span class="hero-index">AP / 001</span><div class="hero-grid"></div><img class="hero-logo" id="hero-logo" src="ap-logo.svg" alt="" /><span class="hero-datum">DATUM · 25.2°</span></div>
+        <article class="identity">
+          <svg class="identity-mark" viewBox="0 0 80 80" fill="none" aria-hidden="true"><path d="M40 5v18M40 57v18M5 40h18M57 40h18" stroke="currentColor"/><circle cx="40" cy="40" r="12" stroke="currentColor"/><path d="m40 31 9 9-9 9-9-9 9-9Z" stroke="#ff450d"/></svg>
+          <div class="identity-content"><p class="kicker">Aarya Parekh</p><h1>Mechanical<br />Engineering</h1><p class="discipline">Design · Manufacturing · Systems</p><p class="identity-description">Mechanical Engineering student building at the intersection of design, manufacturing, and technical problem-solving.</p></div>
+        </article>
       </section>
-
-      <nav class="grid" aria-label="Primary links">
-        <a class="card" href="https://dashboard.aaryaparekh.com" rel="noopener noreferrer" aria-label="Open dashboard">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7" rx="1.5" />
-              <rect x="14" y="3" width="7" height="7" rx="1.5" />
-              <rect x="3" y="14" width="7" height="7" rx="1.5" />
-              <rect x="14" y="14" width="7" height="7" rx="1.5" />
-            </svg>
-          </span>
-          <span class="card-footer">
-            <span>
-              <h2>Dashboard</h2>
-              <p>Projects, tools, and workspace</p>
-            </span>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </span>
-        </a>
-
-        <a class="card" href="https://www.linkedin.com/in/aarya-parag-parekh" rel="noopener noreferrer" aria-label="Open LinkedIn profile">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6.5 8.1H3.2V20h3.3V8.1ZM4.85 3A1.91 1.91 0 1 0 4.84 6.82 1.91 1.91 0 0 0 4.85 3ZM20.8 13.18c0-3.59-1.91-5.26-4.46-5.26a3.85 3.85 0 0 0-3.49 1.92V8.1H9.56V20h3.29v-5.9c0-1.55.29-3.06 2.22-3.06 1.9 0 1.92 1.78 1.92 3.16V20h3.29l.52-6.82Z" />
-            </svg>
-          </span>
-          <span class="card-footer">
-            <span>
-              <h2>LinkedIn</h2>
-              <p>Experience, updates, and connections</p>
-            </span>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </span>
-        </a>
-      </nav>
-
-      <footer>© <span id="year"></span> Aarya Parekh</footer>
+      <section class="lower" aria-label="Discipline and LinkedIn">
+        <div class="statement" aria-hidden="true"><p><span>Mechanical</span><span>Engineering</span></p></div>
+        <div class="technical" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><g class="ticks" stroke="currentColor"><path d="M60 4v24M60 92v24M4 60h24M92 60h24"/><path d="m19 19 13 13m56 56 13 13m0-82L88 32M32 88l-13 13" opacity=".55"/></g><circle cx="60" cy="60" r="30" stroke="currentColor" opacity=".35"/><rect class="diamond" x="46" y="46" width="28" height="28" stroke="currentColor"/><circle cx="60" cy="60" r="3.5" fill="#ff450d"/></svg></div>
+        <a class="dashboard" href="https://www.linkedin.com/in/aarya-parag-parekh" target="_blank" rel="noopener noreferrer" aria-label="Open Aarya's LinkedIn profile"><span class="dashboard-meta"><span class="microcopy">Connect &amp; collaborate</span><span class="copyright">© 2026 Aarya Parekh</span></span><span class="dashboard-main"><span class="dashboard-label">LinkedIn</span><svg class="dashboard-arrow" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M7 24h32M28 13l11 11-11 11" stroke="currentColor" stroke-width="1.5"/></svg></span></a>
+      </section>
     </main>
-
-    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+    <script>
+      (()=>{const hero=document.getElementById("hero"),logo=document.getElementById("hero-logo");if(!hero||!logo||!matchMedia("(pointer: fine)").matches||matchMedia("(prefers-reduced-motion: reduce)").matches)return;let frame;hero.addEventListener("pointermove",event=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{const box=hero.getBoundingClientRect(),x=((event.clientX-box.left)/box.width-.5)*5,y=((event.clientY-box.top)/box.height-.5)*5;logo.style.setProperty("--logo-x",`${x}px`);logo.style.setProperty("--logo-y",`${y}px`)})});hero.addEventListener("pointerleave",()=>{logo.style.setProperty("--logo-x","0px");logo.style.setProperty("--logo-y","0px")})})();
+    </script>
   </body>
 </html>
