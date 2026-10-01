@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111214" />
+  <title>A.P — CAD Loader Lab</title>
+  <link rel="icon" href="ap-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="loader.css" />
+  <script src="loader.js" defer></script>
+</head>
+<body>
+  <main class="lab">
+    <header class="lab-header">
+      <a class="lab-brand" href="./"><img src="ap-logo.svg" alt="A.P" /><span>Motion laboratory <small>Study 02 / CAD extrusion</small></span></a>
+      <a class="site-link" href="./">Website ↗</a>
+    </header>
+    <section class="stage" aria-labelledby="study-title">
+      <div class="stage-heading"><p class="eyebrow">From construction to character</p><h1 id="study-title">Sketch. Extrude. Resolve.</h1></div>
+      <canvas id="cad-stage" aria-label="Animated A.P logo: construction planes become a solid three-dimensional extrusion"></canvas>
+      <div class="stage-corner">AP / SOLID 002 <span id="view-label">ISOMETRIC CONSTRUCTION</span></div>
+      <div class="phase-readout"><span class="phase-index" id="phase-index">01</span><div><p id="phase-name">Reference planes</p><span id="phase-detail">Establishing the coordinate system</span></div></div>
+      <div class="orientation" aria-hidden="true"><span class="axis-x">X</span><span class="axis-y">Y</span><span class="axis-z">Z</span><i></i></div>
+      <p class="orbit-hint" id="orbit-hint">Drag the finished solid to inspect it</p>
+    </section>
+    <aside class="controls" aria-label="Animation settings">
+      <div class="controls-title"><span class="eyebrow">Construction parameters</span><span class="live-dot">Loader study</span></div>
+      <div class="parameters">
+        <label for="depth">Extrusion depth <output id="depth-value" for="depth">48 u</output><input id="depth" aria-label="Extrusion depth" type="range" min="12" max="100" value="48" /></label>
+        <label for="planes">Sketch planes <output id="planes-value" for="planes">5</output><input id="planes" aria-label="Sketch planes" type="range" min="2" max="7" value="5" /></label>
+        <label for="duration">Sequence length <output id="duration-value" for="duration">8 s</output><input id="duration" aria-label="Sequence length" type="range" min="4" max="12" step="0.5" value="8" /></label>
+        <label for="angle">Final rotation <output id="angle-value" for="angle">18°</output><input id="angle" aria-label="Final rotation" type="range" min="0" max="45" value="18" /></label>
+      </div>
+      <div class="transport"><button id="replay" type="button">Replay ↻</button><button id="pause" type="button">Pause</button><button id="copy" type="button">Copy settings link ↗</button><span id="time" class="time">00.0 / 08.0 s</span></div>
+      <label class="timeline-label" for="timeline">Sequence position <output id="progress-value" for="timeline">0%</output></label>
+      <input id="timeline" class="timeline" type="range" min="0" max="1000" value="0" aria-label="Scrub animation timeline" />
+      <div class="timeline-stages" aria-hidden="true"><span>Planes</span><span>Sketch</span><span>Extrude</span><span>Solid</span><span>Resolve</span></div>
+      <p class="note" id="lab-note" role="status">Prototype only. Your current website loader is unchanged.</p>
+    </aside>
+  </main>
+</body>
+</html>
